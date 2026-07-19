@@ -51,6 +51,13 @@
             margin-bottom: 20px;
         }
 
+        .payment-info {
+            text-align: center;
+            color: rgba(255, 255, 255, 0.4);
+            font-size: 12px;
+            margin-top: 4px;
+        }
+
         .amount-btn {
             background: rgba(255, 255, 255, 0.06);
             border: 2px solid rgba(255, 255, 255, 0.12);
@@ -177,6 +184,11 @@
                     <button class="amount-btn" data-amount="2" onclick="selectAmount(this)">$2.00</button>
                     <button class="amount-btn" data-amount="5" onclick="selectAmount(this)">$5.00</button>
                     <button class="amount-btn" data-amount="10" onclick="selectAmount(this)">$10.00</button>
+                    <button class="amount-btn" data-amount="15" onclick="selectAmount(this)">$15.00</button>
+                    <button class="amount-btn" data-amount="20" onclick="selectAmount(this)">$20.00</button>
+                    <button class="amount-btn" data-amount="30" onclick="selectAmount(this)">$30.00</button>
+                    <button class="amount-btn" data-amount="50" onclick="selectAmount(this)">$50.00</button>
+                    <button class="amount-btn" data-amount="100" onclick="selectAmount(this)">$100.00</button>
                     <button class="amount-btn" data-amount="0" onclick="selectCustom()">Custom</button>
                 </div>
 
@@ -190,12 +202,7 @@
                     💳 Pay Now
                 </button>
 
-                <div class="payment-methods">
-                    <div class="payment-badge"><span>💳</span> Card</div>
-                    <div class="payment-badge"><span>🅿️</span> PayPal</div>
-                    <div class="payment-badge"><span>🍎</span> Apple Pay</div>
-                    <div class="payment-badge"><span>📱</span> Google Pay</div>
-                </div>
+                <p class="payment-info">Supports Card, PayPal, Apple Pay & Google Wallet</p>
             </div>
 
             <div class="thank-you" id="thankYou">

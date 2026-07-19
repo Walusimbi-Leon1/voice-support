@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Support Voice — Audiobook Player</title>
+    <title>Support — Developer Dashboard</title>
     <script src="https://js.paystack.co/v1/inline.js"></script>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
             color: #fff;
             min-height: 100vh;
             display: flex;
@@ -25,30 +25,23 @@
         }
 
         .card {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(20px);
+            background: rgba(255, 255, 255, 0.07);
+            backdrop-filter: blur(24px);
             border-radius: 24px;
             padding: 40px 32px;
-            border: 1px solid rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.12);
             text-align: center;
         }
 
-        .icon {
-            font-size: 48px;
-            margin-bottom: 16px;
-        }
+        .icon { font-size: 48px; margin-bottom: 16px; }
 
-        h1 {
-            font-size: 24px;
-            font-weight: 700;
-            margin-bottom: 8px;
-        }
+        h1 { font-size: 24px; font-weight: 700; margin-bottom: 8px; }
 
         .subtitle {
-            color: rgba(255, 255, 255, 0.7);
+            color: rgba(255, 255, 255, 0.6);
             font-size: 14px;
             margin-bottom: 32px;
-            line-height: 1.5;
+            line-height: 1.6;
         }
 
         .amounts {
@@ -59,8 +52,8 @@
         }
 
         .amount-btn {
-            background: rgba(255, 255, 255, 0.08);
-            border: 2px solid rgba(255, 255, 255, 0.15);
+            background: rgba(255, 255, 255, 0.06);
+            border: 2px solid rgba(255, 255, 255, 0.12);
             border-radius: 12px;
             padding: 14px 8px;
             color: #fff;
@@ -71,15 +64,15 @@
         }
 
         .amount-btn:hover, .amount-btn.selected {
-            background: rgba(83, 144, 217, 0.3);
-            border-color: #5390d9;
+            background: rgba(99, 102, 241, 0.25);
+            border-color: #6366f1;
         }
 
         .custom-amount {
             width: 100%;
             padding: 14px 16px;
-            background: rgba(255, 255, 255, 0.08);
-            border: 2px solid rgba(255, 255, 255, 0.15);
+            background: rgba(255, 255, 255, 0.06);
+            border: 2px solid rgba(255, 255, 255, 0.12);
             border-radius: 12px;
             color: #fff;
             font-size: 16px;
@@ -88,18 +81,13 @@
             transition: border-color 0.2s;
         }
 
-        .custom-amount:focus {
-            border-color: #5390d9;
-        }
-
-        .custom-amount::placeholder {
-            color: rgba(255, 255, 255, 0.4);
-        }
+        .custom-amount:focus { border-color: #6366f1; }
+        .custom-amount::placeholder { color: rgba(255, 255, 255, 0.35); }
 
         .pay-btn {
             width: 100%;
             padding: 16px;
-            background: linear-gradient(135deg, #5390d9, #48bfe3);
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
             border: none;
             border-radius: 12px;
             color: #fff;
@@ -107,12 +95,12 @@
             font-weight: 700;
             cursor: pointer;
             transition: all 0.2s;
-            margin-bottom: 16px;
+            margin-bottom: 20px;
         }
 
         .pay-btn:hover {
             transform: translateY(-1px);
-            box-shadow: 0 8px 25px rgba(83, 144, 217, 0.4);
+            box-shadow: 0 8px 25px rgba(99, 102, 241, 0.4);
         }
 
         .pay-btn:disabled {
@@ -124,7 +112,8 @@
         .payment-methods {
             display: flex;
             justify-content: center;
-            gap: 16px;
+            gap: 12px;
+            flex-wrap: wrap;
             margin-bottom: 8px;
         }
 
@@ -132,26 +121,24 @@
             display: flex;
             align-items: center;
             gap: 6px;
-            padding: 6px 12px;
-            background: rgba(255, 255, 255, 0.08);
+            padding: 8px 14px;
+            background: rgba(255, 255, 255, 0.06);
             border-radius: 8px;
             font-size: 12px;
-            color: rgba(255, 255, 255, 0.7);
+            color: rgba(255, 255, 255, 0.6);
         }
 
-        .payment-badge span {
-            font-size: 16px;
-        }
+        .payment-badge span { font-size: 16px; }
 
         .footer {
             text-align: center;
             margin-top: 24px;
-            color: rgba(255, 255, 255, 0.4);
+            color: rgba(255, 255, 255, 0.3);
             font-size: 12px;
         }
 
         .footer a {
-            color: rgba(255, 255, 255, 0.6);
+            color: rgba(255, 255, 255, 0.5);
             text-decoration: none;
         }
 
@@ -163,10 +150,10 @@
 
         .thank-you .icon { font-size: 64px; }
         .thank-you h2 { font-size: 22px; margin: 16px 0 8px; }
-        .thank-you p { color: rgba(255,255,255,0.7); font-size: 14px; }
+        .thank-you p { color: rgba(255,255,255,0.6); font-size: 14px; line-height: 1.6; }
 
         .error-msg {
-            color: #ff6b6b;
+            color: #f87171;
             font-size: 13px;
             margin-bottom: 12px;
             display: none;
@@ -177,43 +164,44 @@
     <div class="container">
         <div class="card">
             <div id="payment-form">
-                <div class="icon">🎧</div>
-                <h1>Support Voice</h1>
+                <div class="icon">💜</div>
+                <h1>Support the Developer</h1>
                 <p class="subtitle">
-                    Voice is free, open-source, and built with love.<br>
-                    If it's useful to you, consider buying me a coffee. ☕
+                    This app is free, open-source, and built with love.<br>
+                    If it brings you value, consider supporting its development.
                 </p>
 
                 <div class="amounts">
-                    <button class="amount-btn" data-amount="500" onclick="selectAmount(this)">KSh 500</button>
-                    <button class="amount-btn selected" data-amount="1000" onclick="selectAmount(this)">KSh 1,000</button>
-                    <button class="amount-btn" data-amount="2000" onclick="selectAmount(this)">KSh 2,000</button>
-                    <button class="amount-btn" data-amount="3000" onclick="selectAmount(this)">KSh 3,000</button>
-                    <button class="amount-btn" data-amount="5000" onclick="selectAmount(this)">KSh 5,000</button>
+                    <button class="amount-btn" data-amount="5" onclick="selectAmount(this)">$5</button>
+                    <button class="amount-btn selected" data-amount="10" onclick="selectAmount(this)">$10</button>
+                    <button class="amount-btn" data-amount="20" onclick="selectAmount(this)">$20</button>
+                    <button class="amount-btn" data-amount="50" onclick="selectAmount(this)">$50</button>
+                    <button class="amount-btn" data-amount="100" onclick="selectAmount(this)">$100</button>
                     <button class="amount-btn" data-amount="0" onclick="selectCustom()">Custom</button>
                 </div>
 
-                <input type="number" id="customAmount" class="custom-amount" 
-                       placeholder="Enter amount in KSh" style="display:none;" 
-                       min="100" oninput="validateCustom()">
+                <input type="number" id="customAmount" class="custom-amount"
+                       placeholder="Enter amount in USD" style="display:none;"
+                       min="1" step="0.01" oninput="validateCustom()">
 
-                <div class="error-msg" id="errorMsg">Please enter an amount of at least KSh 100</div>
+                <div class="error-msg" id="errorMsg">Please enter an amount of at least $1</div>
 
                 <button class="pay-btn" id="payBtn" onclick="payWithPaystack()">
-                    💳 Pay with Paystack
+                    💳 Pay Now
                 </button>
 
                 <div class="payment-methods">
-                    <div class="payment-badge"><span>📱</span> M-Pesa</div>
-                    <div class="payment-badge"><span>💳</span> Debit Card</div>
-                    <div class="payment-badge"><span>🏦</span> Bank Transfer</div>
+                    <div class="payment-badge"><span>💳</span> Card</div>
+                    <div class="payment-badge"><span>🅿️</span> PayPal</div>
+                    <div class="payment-badge"><span>🍎</span> Apple Pay</div>
+                    <div class="payment-badge"><span>📱</span> Google Pay</div>
                 </div>
             </div>
 
             <div class="thank-you" id="thankYou">
                 <div class="icon">🎉</div>
                 <h2>Thank You!</h2>
-                <p>Your support means the world.<br>Enjoy listening to your audiobooks!</p>
+                <p>Your support means the world.<br>It helps keep this project alive and growing.</p>
             </div>
         </div>
 
@@ -224,72 +212,71 @@
 
     <script>
         // ============================================
-        // CONFIGURATION — Replace with your Paystack keys
+        // CONFIGURATION
         // ============================================
-        const PAYSTACK_PUBLIC_KEY = "pk_test_xxxxxxxxxxxxxxxxxxxxxxxx"; // Replace with your public key
-        const PAYMENT_EMAIL = "your-email@example.com"; // Fallback email for anonymous payments
+        const PAYSTACK_PUBLIC_KEY = "pk_live_40927e91c9c5f15bdd837752f55c3b0695db2737";
+        const PAYMENT_EMAIL = "support@voice-app.dev";
         // ============================================
 
-        let selectedAmount = 1000;
+        let selectedAmount = 10;
 
         function selectAmount(btn) {
-            document.querySelectorAll('.amount-btn').forEach(b => b.classList.remove('selected'));
-            btn.classList.add('selected');
-            selectedAmount = parseInt(btn.dataset.amount);
-            document.getElementById('customAmount').style.display = 'none';
-            document.getElementById('customAmount').value = '';
-            document.getElementById('errorMsg').style.display = 'none';
+            document.querySelectorAll(".amount-btn").forEach(b => b.classList.remove("selected"));
+            btn.classList.add("selected");
+            selectedAmount = parseFloat(btn.dataset.amount);
+            document.getElementById("customAmount").style.display = "none";
+            document.getElementById("customAmount").value = "";
+            document.getElementById("errorMsg").style.display = "none";
         }
 
         function selectCustom() {
-            document.querySelectorAll('.amount-btn').forEach(b => b.classList.remove('selected'));
-            document.querySelector('.amount-btn:last-child').classList.add('selected');
-            document.getElementById('customAmount').style.display = 'block';
-            document.getElementById('customAmount').focus();
+            document.querySelectorAll(".amount-btn").forEach(b => b.classList.remove("selected"));
+            document.querySelector(".amount-btn:last-child").classList.add("selected");
+            document.getElementById("customAmount").style.display = "block";
+            document.getElementById("customAmount").focus();
             selectedAmount = 0;
         }
 
         function validateCustom() {
-            const val = parseInt(document.getElementById('customAmount').value);
-            if (val && val >= 100) {
+            const val = parseFloat(document.getElementById("customAmount").value);
+            if (val && val >= 1) {
                 selectedAmount = val;
-                document.getElementById('errorMsg').style.display = 'none';
+                document.getElementById("errorMsg").style.display = "none";
             }
         }
 
         function payWithPaystack() {
-            const amount = selectedAmount || parseInt(document.getElementById('customAmount').value);
-            
-            if (!amount || amount < 100) {
-                document.getElementById('errorMsg').style.display = 'block';
+            const amount = selectedAmount || parseFloat(document.getElementById("customAmount").value);
+
+            if (!amount || amount < 1) {
+                document.getElementById("errorMsg").style.display = "block";
                 return;
             }
 
-            document.getElementById('errorMsg').style.display = 'none';
-            
+            document.getElementById("errorMsg").style.display = "none";
+
             const handler = PaystackPop.setup({
                 key: PAYSTACK_PUBLIC_KEY,
                 email: PAYMENT_EMAIL,
-                amount: amount * 100, // Paystack uses kobo/pesewas (smallest unit)
-                currency: "KES",
+                amount: Math.round(amount * 100), // cents
+                currency: "USD",
+                channels: ["card", "paypal", "apple_pay", "google_pay"],
                 metadata: {
                     custom_fields: [
                         {
                             display_name: "App",
                             variable_name: "app",
-                            value: "Voice Audiobook Player"
+                            value: document.title
                         }
                     ]
                 },
                 callback: function(response) {
-                    // Payment successful
-                    document.getElementById('payment-form').style.display = 'none';
-                    document.getElementById('thankYou').style.display = 'block';
-                    console.log('Payment reference:', response.reference);
+                    document.getElementById("payment-form").style.display = "none";
+                    document.getElementById("thankYou").style.display = "block";
+                    console.log("Payment reference:", response.reference);
                 },
                 onClose: function() {
-                    // User closed the popup
-                    console.log('Payment cancelled');
+                    console.log("Payment cancelled");
                 }
             });
             handler.openIframe();

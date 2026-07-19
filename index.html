@@ -172,11 +172,11 @@
                 </p>
 
                 <div class="amounts">
-                    <button class="amount-btn" data-amount="5" onclick="selectAmount(this)">$5</button>
-                    <button class="amount-btn selected" data-amount="10" onclick="selectAmount(this)">$10</button>
-                    <button class="amount-btn" data-amount="20" onclick="selectAmount(this)">$20</button>
-                    <button class="amount-btn" data-amount="50" onclick="selectAmount(this)">$50</button>
-                    <button class="amount-btn" data-amount="100" onclick="selectAmount(this)">$100</button>
+                    <button class="amount-btn" data-amount="0.50" onclick="selectAmount(this)">$0.50</button>
+                    <button class="amount-btn selected" data-amount="1" onclick="selectAmount(this)">$1.00</button>
+                    <button class="amount-btn" data-amount="2" onclick="selectAmount(this)">$2.00</button>
+                    <button class="amount-btn" data-amount="5" onclick="selectAmount(this)">$5.00</button>
+                    <button class="amount-btn" data-amount="10" onclick="selectAmount(this)">$10.00</button>
                     <button class="amount-btn" data-amount="0" onclick="selectCustom()">Custom</button>
                 </div>
 
@@ -218,7 +218,7 @@
         const PAYMENT_EMAIL = "support@voice-app.dev";
         // ============================================
 
-        let selectedAmount = 10;
+        let selectedAmount = 1;
 
         function selectAmount(btn) {
             document.querySelectorAll(".amount-btn").forEach(b => b.classList.remove("selected"));
